@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bibliotek</title>
+    <!-- CSS is Lumen theme for Bootsrap 4 from Bootswatch.com -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/lumen/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/05d84ca53f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="container mt-4">
+        <!-- Image of books created by Lluisa Iborra from the Noun Project -->
+        <h1 class="display-4 text-center mb-0">  <img src="assets/books.svg" alt=""> Bibliotek</h1>
+        <form id="book-form">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" id="title" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="isbn">ISBN#</label>
+                <input type="text" id="isbn" class="form-control">
+            </div>
+            <input type="submit" value="Add Book" class="btn btn-outline-dark btn-block">
+        </form>
+        <!-- Table where books go -->
+        <table class="table table-striped mt-5">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN#</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="book-list">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>
