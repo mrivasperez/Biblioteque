@@ -9,7 +9,7 @@ class Book {
 
 //UI
 class UI {
-    //
+    // the books
     static displayBooks(){
         //books in storage
         const StoredBooks = [
@@ -30,6 +30,8 @@ class UI {
         // loop through all books in array and call add book to list to add book to list
         books.forEach((book) => UI.addBookToList(book));
     };
+
+    // add a new book based on user input
     static addBookToList(book) {
         //create row to add to tbody
         const list = document.querySelector('#book-list');
@@ -48,6 +50,7 @@ class UI {
         list.appendChild(row);
     };
 
+    // delete a book
     static deleteBook(el) {
         // make sure that what we clicked contains the delete class!
         if(el.classList.contains('delete')){
@@ -55,7 +58,12 @@ class UI {
             el.parentElement.parentElement.remove();
         };
     };
+    // error or success alert
+    static showAlert(message, className) {
 
+    }
+    
+    // clear fields
     static clearFields() {
         document.querySelector('#title').value = '';
         document.querySelector('#author').value = '';
@@ -68,7 +76,6 @@ class UI {
 // STORAGE
 
 // DISPLAY BOOKS
-
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
 //ADD A BOOK
@@ -87,10 +94,8 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     } else {
         // instantiate book
         const book = new Book(title, author, isbn);
-
         // add book to the ui
         UI.addBookToList(book);
-
         // clear fields after submit
         UI.clearFields();
     };
