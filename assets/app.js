@@ -71,7 +71,7 @@ class UI {
 
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
-//ADD A BOOk
+//ADD A BOOK
 document.querySelector('#book-form').addEventListener('submit', (e) => {
     //prevent default action (submit form - refreshes webpage!)
     e.preventDefault();
@@ -81,14 +81,21 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     const author = document.querySelector('#author').value;
     const isbn = document.querySelector('#isbn').value;
 
-    // instantiate book
-    const book = new Book(title, author, isbn);
+    // validate form input
+    if(title === '' || author === '' || isbn === '') {
+        alert('Please fill in all fields')
+    } else {
+        // instantiate book
+        const book = new Book(title, author, isbn);
 
-    // add book to the ui
-    UI.addBookToList(book);
+        // add book to the ui
+        UI.addBookToList(book);
 
-    // clear fields after submit
-    UI.clearFields();
+        // clear fields after submit
+        UI.clearFields();
+    };
+
+    
 
 });
 
