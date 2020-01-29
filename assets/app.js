@@ -49,9 +49,9 @@ class UI {
     };
 
     static deleteBook(el) {
-        //make sure that what we clicked contains the delete class
+        // make sure that what we clicked contains the delete class!
         if(el.classList.contains('delete')){
-            //delete parent of parent element (complete row)
+            // delete parent element (tr) of parent element (td) (to delete complete row)
             el.parentElement.parentElement.remove();
         };
     };
@@ -93,6 +93,8 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 });
 
 //REMOVE A BOOK
+//target the actual list w/ event listener
 document.querySelector('#book-list').addEventListener('click', (el) => {
+    //target the current element
     UI.deleteBook(el.target);
 });
