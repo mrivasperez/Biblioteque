@@ -70,7 +70,9 @@ class UI {
         //select form
         const form = document.querySelector('#book-form');
         // insert alert div before the form
-        container.insertBefore(div, form)
+        container.insertBefore(div, form);
+        // vanish in 3 seconds
+        setTimeout(() => document.querySelector('.alert').remove(),2300);
 
     }
     
@@ -101,8 +103,9 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
     // validate form input
     if(title === '' || author === '' || isbn === '') {
-        alert('Please fill in all fields')
+        UI.showAlert('Please fill in all of the fields.', 'danger')
     } else {
+        UI.showAlert('The book was added.','success')
         // instantiate book
         const book = new Book(title, author, isbn);
         // add book to the ui
