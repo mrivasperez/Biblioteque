@@ -37,4 +37,3 @@ The book data is stored in local storage, for this reason, it is important to ke
 - Boostrap 4
 - Lumen Boostrap theme by Bootswatch <https://bootswatch.com/lumen/>
 - Image of books created by Lluisa Iborra from the Noun Project <https://thenounproject.com/search/?q=books&i=1535511>
-- 
