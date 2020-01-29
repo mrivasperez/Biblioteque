@@ -13,9 +13,13 @@
 </head>
 <body>
 
-    <div class="container mt-4">
+    <div class="container mt-5">
         <!-- Image of books created by Lluisa Iborra from the Noun Project -->
-        <h1 class="display-4 text-center mb-0">  <img src="assets/books.svg" alt=""> Bibliotek</h1>
+        <div class="header mb-5 p-5 text-center">
+            <img src="assets/books.svg" alt="">
+            <h1 class="display-3"> Bibliotek</h1>
+            <p>It's time you organized your books.</p>
+        </div>
         <form id="book-form">
             <div class="form-group">
                 <label for="title">Title</label>
@@ -23,12 +27,14 @@
             </div>
             <div class="form-group">
                 <label for="author">Author</label>
-                <input type="text" id="title" class="form-control">
+                <input type="text" id="author" class="form-control">
             </div>
             <div class="form-group">
                 <label for="isbn">ISBN#</label>
                 <input type="text" id="isbn" class="form-control">
             </div>
+            <!--  !!!!!!!!!!!!!!!!!!!!!
+                limit height to x pixels so that it doesn't jump! -->
             <input type="submit" value="Add Book" class="btn btn-outline-dark btn-block">
         </form>
         <!-- Table where books go -->

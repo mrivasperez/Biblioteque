@@ -1,4 +1,24 @@
+.header {
+    background-color: #ffffff;
+    background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+    border: solid 3px #000000;
+    max-height: 100%;
+    font-weight: 100;
+}
+
+.header p {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.header:hover {
+    cursor: default;
+}
+
 img {
-    height: 250px;
-    width: 11%;
+    max-height: 175px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
