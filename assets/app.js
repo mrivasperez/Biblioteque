@@ -11,21 +11,8 @@ class Book {
 class UI {
     // the books
     static displayBooks(){
-        //books in storage
-        const StoredBooks = [
-            {
-                title: 'Example One',
-                author: 'Example Two',
-                isbn: '123456'
-            },
-            {
-                title: 'Example Two: The Second Example',
-                author: 'Example Two',
-                isbn: '122345'
-            }
-        ];
-        // books variable linked to StordBooks
-        const books = StoredBooks;
+        //books in local storage
+        const books = Store.getBooks();
 
         // loop through all books in array and call add book to list to add book to list
         books.forEach((book) => UI.addBookToList(book));
@@ -56,7 +43,8 @@ class UI {
         if(el.classList.contains('delete')){
             // delete parent element (tr) of parent element (td) (to delete complete row)
             el.parentElement.parentElement.remove();
-            this.showAlert(`The book was removed.`, 'warning');
+            // alert the user that the book was removed
+            this.showAlert(`The book was removed.`, 'secondary');
         };
     };
 
@@ -87,7 +75,48 @@ class UI {
 };
 
 
-// STORAGE
+// LOCAL STORAGE MODULE
+class Store {
+    // get books from local storage
+    static getBooks() {
+        // check if books is already in local storage
+        let books;
+        if(localStorage.getItem('books') === null){
+            // if not create a new empty array for books
+            books = [];
+        } else {
+            // if exist get current array
+            books = JSON.parse(localStorage.getItem('books'));
+        };
+        // return whatever is in books
+        return books;
+    };
+
+    // add book to local storage
+    static addBook(book) {
+        // get books from local storage
+        const books = Store.getBooks();
+        // push on whatever is passed on books
+        books.push(book);
+        // set it to localstorage
+        localStorage.setItem('books', JSON.stringify(books));
+
+    };
+
+    // remove book from local storage by their isbn since it's their unique id
+    static removeBook(isbn) {
+        const books = Store.getBooks();
+        // loop through books
+        books.forEach((book, index) => {
+            // if isbn matches one input to remove
+            if(book.isbn === isbn){
+                // slice matched book out of the array using index
+                books.splice(index, 1);
+            };
+        });
+        localStorage.setItem('books', JSON.stringify(books));
+    };
+};
 
 // DISPLAY BOOKS
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
@@ -113,6 +142,8 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
         const book = new Book(title, author, isbn);
         // add book to the ui
         UI.addBookToList(book);
+        // add book to local storage
+        Store.addBook(book);
         // clear fields after submit
         UI.clearFields();
     };
