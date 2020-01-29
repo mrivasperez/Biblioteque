@@ -43,8 +43,6 @@ class UI {
         if(el.classList.contains('delete')){
             // delete parent element (tr) of parent element (td) (to delete complete row)
             el.parentElement.parentElement.remove();
-            // alert the user that the book was removed
-            this.showAlert(`The book was removed.`, 'secondary');
         };
     };
 
@@ -155,6 +153,10 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 //REMOVE A BOOK
 //target the actual list w/ event listener
 document.querySelector('#book-list').addEventListener('click', (el) => {
-    //target the current element
+    //target the current element - remove book from UI
     UI.deleteBook(el.target);
+    // remove book from local storage
+    Store.removeBook(el.target.parentElement.previousElementSibling.textContent);
+    // alert the user that the book was removed
+    UI.showAlert(`The book was removed.`, 'secondary');
 });
