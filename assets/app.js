@@ -58,8 +58,19 @@ class UI {
             el.parentElement.parentElement.remove();
         };
     };
+
     // error or success alert
     static showAlert(message, className) {
+        //create a new div
+        const div = document.createElement('div');
+        div.className = `alert alert-dismissible alert-${className}`;
+        div.appendChild(document.createTextNode(message));
+        //select container
+        const container = document.querySelector('.container');
+        //select form
+        const form = document.querySelector('#book-form');
+        // insert alert div before the form
+        container.insertBefore(div, form)
 
     }
     
