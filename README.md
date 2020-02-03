@@ -1,4 +1,4 @@
-# Biblioteque - Keep track of your books! ![License: Unlicense]((https://img.shields.io/badge/license-Unlicense-blue.svg)((http://unlicense.org/)))
+# Biblioteque - Keep track of your books! [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 by mrivas perez live demo: <https://mrivasperez.github.io/Biblioteque/>
 
 ## About
